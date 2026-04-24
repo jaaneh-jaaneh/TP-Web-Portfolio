@@ -1,5 +1,5 @@
-# Portfolio — Khadi Sow
-## L3 Informatique — UFR STA — UAM 2025-2026
+# Portfolio — Khadidiatou DIANE
+## L3 Informatique Appliquée — UFR STA — UAM 2024-2026
 
 ### Structure du projet
 ```
@@ -22,7 +22,7 @@ portfolio/
    ```
    par :
    ```html
-   <img class="hero-photo" src="images/photo.jpg" alt="Photo de Khadi Sow">
+   <img class="hero-photo" src="images/photo.jpg" alt="Photo de Khadidiatou DIANE">
    ```
 
 ### Technologies utilisées
@@ -32,6 +32,6 @@ portfolio/
 - Aucun JavaScript, aucun Bootstrap
 
 ### TP réalisé par
-Khadi Sow — Licence 3 Informatique, UFR STA, UAM
+Khadidiatou DIANE — Licence 3 Informatique Appliquée, UFR STA, UAM
 Année académique 2025-2026
 Cours : Programmation Web HTML5, CSS3 & Fondamentaux Web — Dr Lamine YADE
