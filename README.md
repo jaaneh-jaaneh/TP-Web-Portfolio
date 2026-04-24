@@ -1,5 +1,5 @@
 # Portfolio — Khadidiatou DIANE
-## L3 Informatique Appliquée — UFR STA — UAM 2024-2026
+## L3 Informatique Appliquée — UFR STA — UAM 2025-2026
 
 ### Structure du projet
 ```
