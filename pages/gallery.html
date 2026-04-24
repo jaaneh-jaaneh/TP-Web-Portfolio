@@ -4,15 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Galerie de projets de Khadi Sow — étudiante en L3 Informatique.">
-  <title>Galerie — Khadi Sow</title>
+  <meta name="description" content="Galerie de projets de Khadidiatou DIANE — étudiante en L3 Informatique.">
+  <title>Galerie — Khadidiatou DIANE</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
 
   <nav class="navbar">
-    <a href="../index.html" class="nav-logo">Khadi<span>.</span></a>
+    <a href="../index.html" class="nav-logo">Jaaneh<span>.</span></a>
     <ul class="nav-links">
       <li><a href="../index.html">Accueil</a></li>
       <li><a href="about.html">À propos</a></li>
@@ -35,38 +35,17 @@
       </div>
     </section>
 
-    <!-- ============================
-      SECTION GALERIE PRINCIPALE
-      
-      Pourquoi Flexbox ici ?
-      → display: flex + flex-wrap: wrap permet aux cartes de
-        s'organiser en LIGNES automatiquement selon la place disponible.
-      → Pas besoin de JavaScript pour calculer les colonnes !
-      → Sur mobile : 1 carte par ligne
-      → Sur tablette : 2 cartes par ligne
-      → Sur desktop : 3 cartes par ligne
-      Tout ça géré par min-width sur les cartes + flex-wrap.
-    ============================== -->
+    <!-- Section de présentation -->
     <section class="gallery-section">
       <div class="container">
 
         <h2 class="section-title">Projets <span>académiques</span></h2>
         <p class="section-subtitle">Réalisations dans le cadre de ma formation</p>
 
-        <!-- 
-          GRILLE FLEXBOX
-          Voir style.css → .gallery-grid
-          display: flex + flex-wrap: wrap + gap: 1.5rem
-        -->
         <div class="gallery-grid">
 
           <!-- CARTE 1 -->
           <article class="project-card">
-            <!--
-              <article> = contenu autonome, complet en lui-même.
-              Sémantiquement plus correct qu'une simple <div>
-              pour un élément de galerie/carte projet.
-            -->
             <div class="project-thumb" style="background: linear-gradient(135deg, #1A3C5E, #0ABFBC);">
               🌐
             </div>
@@ -184,19 +163,12 @@
       </div>
     </section>
 
-    <!-- ============================
-      SECTION : COMPÉTENCES VISUELLES
-      (une façon différente d'afficher les techno maîtrisées)
-    ============================== -->
+  
     <section style="background:var(--gris-clair); padding:var(--section-padding);">
       <div class="container">
         <h2 class="section-title" style="text-align:center;">Technologies <span>utilisées</span></h2>
         <p class="section-subtitle" style="text-align:center;">Dans mes projets</p>
 
-        <!-- 
-          Disposition Flexbox centrée avec flex-wrap
-          Les cartes technos s'organisent seules
-        -->
         <div style="display:flex; flex-wrap:wrap; gap:1.5rem; justify-content:center; margin-top:1rem;">
 
           <!-- Carte techno réutilisable -->
@@ -250,14 +222,14 @@
   </main>
 
   <footer>
-    <div class="footer-logo">Khadi<span>.</span></div>
+    <div class="footer-logo">Jaaneh<span>.</span></div>
     <ul class="footer-links">
       <li><a href="../index.html">Accueil</a></li>
       <li><a href="about.html">À propos</a></li>
       <li><a href="gallery.html">Galerie</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <p>© 2026 Khadi Sow — L3 Informatique, UFR STA · UAM</p>
+    <p>© 2026 Khadidiatou DIANE — L3 Informatique Appliquee, UFR STA · UAM</p>
   </footer>
 
 </body>
