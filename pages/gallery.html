@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Galerie de projets de Khadi Sow — étudiante en L3 Informatique.">
+  <title>Galerie — Khadi Sow</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">Khadi<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Accueil</a></li>
+      <li><a href="about.html">À propos</a></li>
+      <li><a href="gallery.html" class="active">Galerie</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-content">
+
+    <!-- En-tête de page -->
+    <section style="background: var(--gradient); padding: 4rem 1.2rem 3rem; text-align:center; color:var(--blanc);">
+      <div class="container">
+        <h1 style="font-family:var(--font-titre); font-size:3rem; animation: fadeInDown 0.7s ease both;">
+          Mes projets
+        </h1>
+        <p style="opacity:0.85; margin-top:0.5rem; animation: fadeInUp 0.7s ease 0.2s both;">
+          Ce que j'ai réalisé au fil de mes études
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================
+      SECTION GALERIE PRINCIPALE
+      
+      Pourquoi Flexbox ici ?
+      → display: flex + flex-wrap: wrap permet aux cartes de
+        s'organiser en LIGNES automatiquement selon la place disponible.
+      → Pas besoin de JavaScript pour calculer les colonnes !
+      → Sur mobile : 1 carte par ligne
+      → Sur tablette : 2 cartes par ligne
+      → Sur desktop : 3 cartes par ligne
+      Tout ça géré par min-width sur les cartes + flex-wrap.
+    ============================== -->
+    <section class="gallery-section">
+      <div class="container">
+
+        <h2 class="section-title">Projets <span>académiques</span></h2>
+        <p class="section-subtitle">Réalisations dans le cadre de ma formation</p>
+
+        <!-- 
+          GRILLE FLEXBOX
+          Voir style.css → .gallery-grid
+          display: flex + flex-wrap: wrap + gap: 1.5rem
+        -->
+        <div class="gallery-grid">
+
+          <!-- CARTE 1 -->
+          <article class="project-card">
+            <!--
+              <article> = contenu autonome, complet en lui-même.
+              Sémantiquement plus correct qu'une simple <div>
+              pour un élément de galerie/carte projet.
+            -->
+            <div class="project-thumb" style="background: linear-gradient(135deg, #1A3C5E, #0ABFBC);">
+              🌐
+            </div>
+            <div class="project-info">
+              <h3>Portfolio Personnel</h3>
+              <p>
+                Ce site que vous visitez actuellement. Réalisé en HTML5/CSS3 pur,
+                responsive et sans bibliothèque externe.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">HTML5</span>
+                <span class="project-tag">CSS3</span>
+                <span class="project-tag">Flexbox</span>
+                <span class="project-tag">Responsive</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARTE 2 -->
+          <article class="project-card">
+            <div class="project-thumb" style="background: linear-gradient(135deg, #0ABFBC, #00897B);">
+              🐍
+            </div>
+            <div class="project-info">
+              <h3>Gestionnaire de notes Python</h3>
+              <p>
+                Application en ligne de commande pour gérer les notes
+                d'étudiants : calcul de moyennes, tri et export en fichier texte.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">POO</span>
+                <span class="project-tag">Fichiers</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARTE 3 -->
+          <article class="project-card">
+            <div class="project-thumb" style="background: linear-gradient(135deg, #1565C0, #1A3C5E);">
+              🗃️
+            </div>
+            <div class="project-info">
+              <h3>Base de données Bibliothèque</h3>
+              <p>
+                Modélisation et création d'une base de données pour une bibliothèque
+                universitaire avec requêtes SQL complexes (jointures, agrégats).
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">SQL</span>
+                <span class="project-tag">Merise</span>
+                <span class="project-tag">MySQL</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARTE 4 -->
+          <article class="project-card">
+            <div class="project-thumb" style="background: linear-gradient(135deg, #006064, #0ABFBC);">
+              🧮
+            </div>
+            <div class="project-info">
+              <h3>Algorithmes de tri — TP Algo</h3>
+              <p>
+                Implémentation et comparaison de différents algorithmes de tri
+                (bulles, fusion, rapide) avec analyse de complexité.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Algorithmique</span>
+                <span class="project-tag">Python</span>
+                <span class="project-tag">Complexité</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARTE 5 -->
+          <article class="project-card">
+            <div class="project-thumb" style="background: linear-gradient(135deg, #1A3C5E, #0D47A1);">
+              🌍
+            </div>
+            <div class="project-info">
+              <h3>Site Web — Projet L2</h3>
+              <p>
+                Premier projet web réalisé en L2 : une page HTML statique
+                sur les ressources informatiques locales au Sénégal.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS</span>
+                <span class="project-tag">Projet L2</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARTE 6 -->
+          <article class="project-card">
+            <div class="project-thumb" style="background: linear-gradient(135deg, #00695C, #0ABFBC);">
+              🔒
+            </div>
+            <div class="project-info">
+              <h3>Mini-Projet Réseaux</h3>
+              <p>
+                Simulation d'un réseau local avec configuration IP, masques
+                de sous-réseau et analyse de trames sur Packet Tracer.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">Réseaux</span>
+                <span class="project-tag">Cisco</span>
+                <span class="project-tag">TCP/IP</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+      SECTION : COMPÉTENCES VISUELLES
+      (une façon différente d'afficher les techno maîtrisées)
+    ============================== -->
+    <section style="background:var(--gris-clair); padding:var(--section-padding);">
+      <div class="container">
+        <h2 class="section-title" style="text-align:center;">Technologies <span>utilisées</span></h2>
+        <p class="section-subtitle" style="text-align:center;">Dans mes projets</p>
+
+        <!-- 
+          Disposition Flexbox centrée avec flex-wrap
+          Les cartes technos s'organisent seules
+        -->
+        <div style="display:flex; flex-wrap:wrap; gap:1.5rem; justify-content:center; margin-top:1rem;">
+
+          <!-- Carte techno réutilisable -->
+          <div style="background:var(--blanc); border:1px solid rgba(10,191,188,0.2); border-radius:var(--radius); padding:1.5rem 2rem; text-align:center; min-width:120px; transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 30px rgba(10,191,188,0.2)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+            <div style="font-size:2.5rem; margin-bottom:0.5rem;">🌐</div>
+            <div style="font-weight:600; color:var(--bleu); font-size:0.9rem;">HTML5</div>
+          </div>
+
+          <div style="background:var(--blanc); border:1px solid rgba(10,191,188,0.2); border-radius:var(--radius); padding:1.5rem 2rem; text-align:center; min-width:120px; transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 30px rgba(10,191,188,0.2)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+            <div style="font-size:2.5rem; margin-bottom:0.5rem;">🎨</div>
+            <div style="font-weight:600; color:var(--bleu); font-size:0.9rem;">CSS3</div>
+          </div>
+
+          <div style="background:var(--blanc); border:1px solid rgba(10,191,188,0.2); border-radius:var(--radius); padding:1.5rem 2rem; text-align:center; min-width:120px; transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 30px rgba(10,191,188,0.2)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+            <div style="font-size:2.5rem; margin-bottom:0.5rem;">🐍</div>
+            <div style="font-weight:600; color:var(--bleu); font-size:0.9rem;">Python</div>
+          </div>
+
+          <div style="background:var(--blanc); border:1px solid rgba(10,191,188,0.2); border-radius:var(--radius); padding:1.5rem 2rem; text-align:center; min-width:120px; transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 30px rgba(10,191,188,0.2)'" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 30px rgba(10,191,188,0.2)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+            <div style="font-size:2.5rem; margin-bottom:0.5rem;">🗃️</div>
+            <div style="font-weight:600; color:var(--bleu); font-size:0.9rem;">SQL</div>
+          </div>
+
+          <div style="background:var(--blanc); border:1px solid rgba(10,191,188,0.2); border-radius:var(--radius); padding:1.5rem 2rem; text-align:center; min-width:120px; transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 30px rgba(10,191,188,0.2)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+            <div style="font-size:2.5rem; margin-bottom:0.5rem;">🌿</div>
+            <div style="font-weight:600; color:var(--bleu); font-size:0.9rem;">Git</div>
+          </div>
+
+          <div style="background:var(--blanc); border:1px solid rgba(10,191,188,0.2); border-radius:var(--radius); padding:1.5rem 2rem; text-align:center; min-width:120px; transition: transform 0.3s, box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 30px rgba(10,191,188,0.2)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+            <div style="font-size:2.5rem; margin-bottom:0.5rem;">🐧</div>
+            <div style="font-weight:600; color:var(--bleu); font-size:0.9rem;">Linux</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Appel à l'action -->
+    <section style="background:var(--gradient); padding:4rem 1.2rem; text-align:center; color:var(--blanc);">
+      <div class="container">
+        <h2 style="font-family:var(--font-titre); font-size:2.2rem; margin-bottom:1rem;">
+          Intéressé·e par mon profil ?
+        </h2>
+        <p style="opacity:0.85; margin-bottom:2rem;">
+          N'hésitez pas à me contacter pour toute opportunité ou collaboration.
+        </p>
+        <a href="contact.html" class="btn-white">Me contacter →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-logo">Khadi<span>.</span></div>
+    <ul class="footer-links">
+      <li><a href="../index.html">Accueil</a></li>
+      <li><a href="about.html">À propos</a></li>
+      <li><a href="gallery.html">Galerie</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p>© 2026 Khadi Sow — L3 Informatique, UFR STA · UAM</p>
+  </footer>
+
+</body>
+</html>

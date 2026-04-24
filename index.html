@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!-- 
+  DOCTYPE html → dit au navigateur que c'est du HTML5 (version moderne)
+  Sans ça, le navigateur peut afficher la page en "mode quirks" (comportement imprévisible)
+-->
+<html lang="fr">
+<!--
+  lang="fr" → important pour l'accessibilité et le SEO
+  Les lecteurs d'écran et moteurs de recherche savent que c'est en français
+-->
+
+<head>
+  <!-- ============================================================
+    Le <head> contient des MÉTADONNÉES (infos sur la page,
+    invisibles pour l'utilisateur mais essentielles pour le navigateur)
+    ============================================================ -->
+
+  <!-- Encodage des caractères — obligatoire pour les accents (é, à, ç...) -->
+  <meta charset="UTF-8">
+
+  <!-- Responsive : dit au navigateur mobile de ne PAS zoomer/dézoomer -->
+  <!-- width=device-width : largeur = largeur de l'écran du téléphone -->
+  <!-- initial-scale=1.0 : zoom initial = 100% -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Description qui apparaît dans Google (SEO) -->
+  <meta name="description" content="Portfolio de Khadi Sow, étudiante en L3 Informatique à l'UFR STA.">
+
+  <!-- Titre de l'onglet -->
+  <title>Khadidiatou Diane — Portfolio</title>
+
+  <!-- Lien vers la feuille de style CSS -->
+  <!-- href="../css/style.css" → remonte d'un dossier (..) puis va dans css/ -->
+  <!-- Mais index.html est à la racine, donc juste css/style.css -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ============================================================
+    NAVIGATION — balise <nav> = élément sémantique pour la navigation
+    Sémantique : on utilise la BONNE balise HTML pour le bon contenu.
+    <nav> dit aux moteurs de recherche "c'est le menu de navigation"
+    ============================================================ -->
+  <nav class="navbar">
+    <!-- Logo / Nom du site -->
+    <a href="index.html" class="nav-logo">Jaaneh<span>.</span></a>
+
+    <!-- Liste des liens de navigation -->
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Accueil</a></li>
+      <li><a href="pages/about.html">À propos</a></li>
+      <li><a href="pages/gallery.html">Galerie</a></li>
+      <li><a href="pages/contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============================================================
+    CONTENU PRINCIPAL — <main> = contenu principal de la page
+    Un seul <main> par page (accessibilité)
+    ============================================================ -->
+  <main class="page-content">
+
+    <!-- ============================
+      SECTION HÉRO
+      min-height: 100vh → occupe au moins toute la hauteur de l'écran
+      C'est la première chose que voit le visiteur
+    ============================== -->
+    <section class="hero">
+      <div class="hero-content">
+
+        <!-- Photo de profil -->
+        <!-- alt="..." → texte alternatif si l'image ne charge pas (accessibilité) -->
+        <!-- On utilise un emoji en fallback si la photo n'est pas là -->
+        <img class="hero-photo" src="images/profil.png" alt="Photo de Khadiatou Diane">
+          
+        </div>
+        <!-- 
+          Pour ajouter ta vraie photo, remplace le div ci-dessus par :
+          <img class="hero-photo" src="images/photo.jpg" alt="Photo de Khadi Sow">
+          Et mets ta photo dans le dossier images/
+        -->
+
+        <!-- Texte d'accueil -->
+        <div class="hero-text">
+          <p class="hero-greeting">Bienvenue sur mon portfolio</p>
+          <h1 class="hero-name">Khadiatou Diane</h1>
+          <!-- <h1> = titre le plus important de la page, UN SEUL par page -->
+
+          <p class="hero-subtitle">
+            Étudiante en Licence 3 Informatique appliquee (MPI) à l'UFR STA — passionnée par le développement web
+            et la création d'interfaces modernes et accessibles.
+          </p>
+
+          <!-- Boutons d'action -->
+          <div class="hero-buttons">
+            <a href="pages/about.html" class="btn-white">Découvrir mon parcours</a>
+            <a href="pages/contact.html" class="btn-ghost">Me contacter</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================
+      STATISTIQUES RAPIDES
+    ============================== -->
+    <section class="quick-stats">
+      <div class="container">
+        <div class="stats-grid">
+
+          <div class="stat-card">
+            <div class="stat-icon">🎓</div>
+            <div class="stat-number">L3</div>
+            <div class="stat-label">Niveau académique</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">💻</div>
+            <div class="stat-number">4+</div>
+            <div class="stat-label">Langages maîtrisés</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">🚀</div>
+            <div class="stat-number">5</div>
+            <div class="stat-label">Projets réalisés</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">🌍</div>
+            <div class="stat-number">Dakar</div>
+            <div class="stat-label">Basée à</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+      INTRODUCTION / PRÉSENTATION
+    ============================== -->
+    <section class="home-intro">
+      <div class="container">
+        <div class="home-intro-grid">
+
+          <div class="home-intro-text">
+            <!-- Section titre avec la classe réutilisable -->
+            <h2 class="section-title">Qui suis-je <span>?</span></h2>
+            <p class="section-subtitle">Une présentation rapide</p>
+
+            <p>
+              Je suis <strong>Khadidiatou Diane</strong>, étudiante en troisième année de Licence
+              Informatique à l'Université Amadou Mahtar Mbow de Diamniadio (UAM), au sein de l'UFR STA.
+            </p>
+            <p>
+              Curieuse et rigoureuse, je m'intéresse particulièrement au développement web,
+              à la programmation Python et aux nouvelles technologies. Mon objectif est de
+              créer des applications utiles et accessibles à tous.
+            </p>
+            <p>
+              En dehors des études, j'aime apprendre de nouvelles choses,
+              contribuer à des projets collectifs et explorer la créativité numérique.
+            </p>
+
+            <br>
+            <a href="pages/about.html" class="btn">En savoir plus →</a>
+          </div>
+
+          <!-- Compétences en aperçu -->
+          <div class="home-skills">
+            <h3 style="font-family: var(--font-titre); font-size:1.4rem; color:var(--bleu); margin-bottom:1rem;">
+              Mes compétences clés
+            </h3>
+            <div>
+              <!-- Les tags sont définis dans style.css -->
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">Python</span>
+              <span class="tag">Responsive Design</span>
+              <span class="tag">Flexbox</span>
+              <span class="tag">Algorithmique</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Git</span>
+              <span class="tag">Linux</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+      APPEL À L'ACTION FINAL
+    ============================== -->
+    <section style="background: var(--gradient); padding: 4rem 1.2rem; text-align: center; color: var(--blanc);">
+      <div class="container">
+        <h2 style="font-family: var(--font-titre); font-size: 2.4rem; margin-bottom: 1rem;">
+          Envie de collaborer ?
+        </h2>
+        <p style="opacity: 0.85; margin-bottom: 2rem; font-size: 1.05rem;">
+          Je suis ouverte aux projets, stages et opportunités d'apprentissage.
+        </p>
+        <a href="pages/contact.html" class="btn-white">Prendre contact</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+    FOOTER — pied de page
+    <footer> = balise sémantique pour le bas de page
+    ============================================================ -->
+  <footer>
+    <div class="footer-logo">Khadidiatou<span>.</span></div>
+    <ul class="footer-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="pages/about.html">À propos</a></li>
+      <li><a href="pages/gallery.html">Galerie</a></li>
+      <li><a href="pages/contact.html">Contact</a></li>
+    </ul>
+    <p>© 2026 Khadi Sow — L3 Informatique, UFR STA · UAM</p>
+    <p style="margin-top:0.3rem; font-size:0.75rem; opacity:0.5;">
+      Réalisé avec HTML5 & CSS3 — sans Bootstrap, sans JavaScript
+    </p>
+  </footer>
+
+</body>
+</html>

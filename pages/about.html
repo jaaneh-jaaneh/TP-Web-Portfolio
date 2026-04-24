@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="À propos de Khadi Sow — parcours, compétences et informations personnelles.">
+  <title>À propos — Khadi Sow</title>
+  <!-- 
+    Attention au chemin ! Ce fichier est dans pages/
+    donc pour remonter au dossier css/, on écrit ../css/style.css
+    ".." signifie "remonter d'un niveau"
+  -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">Khadi<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Accueil</a></li>
+      <li><a href="about.html" class="active">À propos</a></li>
+      <li><a href="gallery.html">Galerie</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-content">
+
+    <!-- ============================
+      EN-TÊTE DE PAGE (hero sobre)
+    ============================== -->
+    <section style="background: var(--gradient); padding: 4rem 1.2rem 3rem; text-align:center; color:var(--blanc);">
+      <div class="container">
+        <h1 style="font-family:var(--font-titre); font-size:3rem; animation: fadeInDown 0.7s ease both;">
+          À propos de moi
+        </h1>
+        <p style="opacity:0.85; margin-top:0.5rem; animation: fadeInUp 0.7s ease 0.2s both;">
+          Qui je suis, d'où je viens, où je vais.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================
+      SECTION PRINCIPALE
+    ============================== -->
+    <section class="about-section">
+      <div class="container">
+        <div class="about-grid">
+
+          <!-- COLONNE GAUCHE : Présentation + Timeline -->
+          <div>
+
+            <!-- Description personnelle -->
+            <h2 class="section-title">Ma <span>description</span></h2>
+            <p class="section-subtitle">En quelques mots</p>
+
+            <p style="color:var(--gris); margin-bottom:1rem; line-height:1.9;">
+              Je suis <strong>Khadi Sow</strong>, étudiante passionnée en Licence 3 Informatique
+              à l'Université Alioune Diop de Bambey. Rigoureuse, curieuse et créative,
+              j'aime transformer des idées en projets concrets grâce au code.
+            </p>
+            <p style="color:var(--gris); margin-bottom:2.5rem; line-height:1.9;">
+              Le développement web est ma spécialité actuelle, avec un intérêt croissant
+              pour la programmation Python et les bases de données. Je crois que la technologie
+              doit être au service des gens : accessible, utile et belle.
+            </p>
+
+            <!-- Carte d'informations personnelles -->
+            <div class="info-card" style="margin-bottom:2.5rem;">
+              <h3>Informations</h3>
+              <ul class="info-list">
+                <li><strong>Prénom & Nom :</strong> Khadi Sow</li>
+                <li><strong>Formation :</strong> L3 Informatique — UFR STA</li>
+                <li><strong>Université :</strong> UAM — Bambey</li>
+                <li><strong>Année :</strong> 2025–2026</li>
+                <li><strong>Localisation :</strong> Dakar, Sénégal</li>
+                <li><strong>Langues :</strong> Français, Wolof, Anglais (notions)</li>
+                <li><strong>Email :</strong> khadi.sow@etudiant.uam.sn</li>
+              </ul>
+            </div>
+
+            <!-- Parcours académique — Timeline -->
+            <h2 class="section-title">Parcours <span>académique</span></h2>
+            <p class="section-subtitle">Mon chemin jusqu'ici</p>
+
+            <!-- 
+              La timeline utilise du CSS "position: relative/absolute"
+              pour créer la ligne verticale et les points.
+              Voir style.css section 6B.
+            -->
+            <div class="timeline">
+
+              <div class="timeline-item">
+                <div class="timeline-date">2023 — Présent</div>
+                <div class="timeline-title">Licence 3 Informatique</div>
+                <div class="timeline-sub">UFR STA — Université Alioune Diop de Bambey (UAM)</div>
+              </div>
+
+              <div class="timeline-item" style="animation-delay:0.15s;">
+                <div class="timeline-date">2022 — 2023</div>
+                <div class="timeline-title">Licence 2 Informatique</div>
+                <div class="timeline-sub">UFR STA — UAM, Bambey</div>
+              </div>
+
+              <div class="timeline-item" style="animation-delay:0.3s;">
+                <div class="timeline-date">2021 — 2022</div>
+                <div class="timeline-title">Licence 1 Informatique</div>
+                <div class="timeline-sub">UFR STA — UAM, Bambey</div>
+              </div>
+
+              <div class="timeline-item" style="animation-delay:0.45s;">
+                <div class="timeline-date">2021</div>
+                <div class="timeline-title">Baccalauréat Série S</div>
+                <div class="timeline-sub">Lycée de Dakar</div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- COLONNE DROITE : Compétences -->
+          <div>
+
+            <h2 class="section-title">Mes <span>compétences</span></h2>
+            <p class="section-subtitle">Techniques & outils</p>
+
+            <!-- 
+              Les barres de progression :
+              - la largeur (width) est définie inline avec style=""
+              - l'animation "fillBar" dans style.css fait que la barre
+                part de 0% et remonte jusqu'à la valeur définie
+            -->
+            <div class="skills-grid">
+
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">HTML5</span>
+                  <span class="skill-percent">85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 85%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">CSS3 & Responsive</span>
+                  <span class="skill-percent">80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 80%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Python</span>
+                  <span class="skill-percent">70%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 70%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">SQL / Bases de données</span>
+                  <span class="skill-percent">65%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 65%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Algorithmique</span>
+                  <span class="skill-percent">75%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 75%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Linux / Bash</span>
+                  <span class="skill-percent">55%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 55%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Git / GitHub</span>
+                  <span class="skill-percent">60%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 60%;"></div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Tags supplémentaires -->
+            <div style="margin-top:2.5rem;">
+              <h3 style="font-family:var(--font-titre); font-size:1.3rem; color:var(--bleu); margin-bottom:1rem;">
+                Autres notions
+              </h3>
+              <div>
+                <span class="tag">Réseaux</span>
+                <span class="tag">Java</span>
+                <span class="tag">UML</span>
+                <span class="tag">Merise</span>
+                <span class="tag">Logique booléenne</span>
+                <span class="tag">Architecture</span>
+              </div>
+            </div>
+
+            <!-- Centres d'intérêt -->
+            <div style="margin-top:2.5rem;">
+              <h3 style="font-family:var(--font-titre); font-size:1.3rem; color:var(--bleu); margin-bottom:1rem;">
+                Centres d'intérêt
+              </h3>
+              <div>
+                <span class="tag">🌐 Développement web</span>
+                <span class="tag">📚 Lecture</span>
+                <span class="tag">🎨 Design numérique</span>
+                <span class="tag">🤝 Travail en équipe</span>
+                <span class="tag">🔍 Résolution de problèmes</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Appel à l'action -->
+    <section style="text-align:center; padding:3rem 1.2rem; background:var(--gris-clair);">
+      <div class="container">
+        <h2 style="font-family:var(--font-titre); font-size:2rem; color:var(--bleu); margin-bottom:1rem;">
+          Voir mes réalisations ?
+        </h2>
+        <p style="color:var(--gris); margin-bottom:1.5rem;">
+          Découvrez les projets sur lesquels j'ai travaillé.
+        </p>
+        <a href="gallery.html" class="btn">Voir la galerie →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-logo">Khadi<span>.</span></div>
+    <ul class="footer-links">
+      <li><a href="../index.html">Accueil</a></li>
+      <li><a href="about.html">À propos</a></li>
+      <li><a href="gallery.html">Galerie</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p>© 2026 Khadi Sow — L3 Informatique, UFR STA · UAM</p>
+  </footer>
+
+</body>
+</html>

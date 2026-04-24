@@ -1,0 +1,1058 @@
+/* ============================================================
+   STYLE.CSS — Portfolio de Khadi Sow
+   
+   STRUCTURE DE CE FICHIER :
+   1. Variables CSS (palette de couleurs, polices...)
+   2. Reset & base (supprimer les styles par défaut du navigateur)
+   3. Composants réutilisables (boutons, titres...)
+   4. Navigation
+   5. Footer
+   6. Styles spécifiques à chaque page
+   7. Animations CSS (@keyframes)
+   8. Responsive Design (media queries — MOBILE FIRST)
+   ============================================================ */
+
+
+/* ============================================================
+   1. VARIABLES CSS
+   Pourquoi ? → Définir les couleurs et polices UNE SEULE FOIS.
+   Si on veut changer la couleur principale, on la change juste ici.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  /* Palette turquoise + bleu élégant */
+  --turquoise:     #0ABFBC;
+  --turquoise-dark:#088A87;
+  --bleu:          #1A3C5E;
+  --bleu-clair:    #E8F4F8;
+  --blanc:         #FAFCFD;
+  --gris:          #6B7280;
+  --gris-clair:    #F0F4F7;
+  --noir:          #0F1923;
+
+  /* Dégradé signature */
+  --gradient: linear-gradient(135deg, var(--bleu) 0%, var(--turquoise) 100%);
+  --gradient-light: linear-gradient(135deg, #E8F4F8 0%, #D0F0EF 100%);
+
+  /* Polices */
+  --font-titre: 'Cormorant Garamond', serif;  /* Élégant pour les titres */
+  --font-corps: 'DM Sans', sans-serif;         /* Lisible pour le texte */
+
+  /* Espacements */
+  --section-padding: 4rem 1.2rem;
+  --radius: 12px;
+  --shadow: 0 4px 24px rgba(10, 191, 188, 0.12);
+  --shadow-dark: 0 8px 40px rgba(26, 60, 94, 0.18);
+}
+
+
+/* ============================================================
+   2. RESET & BASE
+   Pourquoi ? → Les navigateurs ajoutent des marges/paddings par défaut.
+   On les supprime pour partir d'une base propre et contrôlée.
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box; /* padding ne déborde plus du conteneur */
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* défilement fluide pour les ancres */
+}
+
+body {
+  font-family: var(--font-corps);
+  color: var(--noir);
+  background-color: var(--blanc);
+  line-height: 1.7; /* espacement confortable entre les lignes */
+  font-size: 16px;
+}
+
+img {
+  max-width: 100%; /* les images ne débordent jamais de leur conteneur */
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* ============================================================
+   3. COMPOSANTS RÉUTILISABLES
+   Pourquoi ? → Plutôt que de répéter le même style 10 fois,
+   on crée des classes réutilisables sur toutes les pages.
+   ============================================================ */
+
+/* Conteneur centré (max 1100px, toujours centré) */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.2rem;
+}
+
+/* Titre de section */
+.section-title {
+  font-family: var(--font-titre);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--bleu);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.section-title span {
+  color: var(--turquoise); /* mot mis en valeur en turquoise */
+}
+
+/* Ligne décorative sous les titres */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--gradient);
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+/* Sous-titre de section */
+.section-subtitle {
+  color: var(--gris);
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+/* Bouton principal */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: var(--gradient);
+  color: var(--blanc);
+  border-radius: 50px;
+  font-family: var(--font-corps);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* transition = effet progressif au lieu d'un changement brutal */
+}
+
+.btn:hover {
+  transform: translateY(-3px); /* monte légèrement au survol */
+  box-shadow: 0 8px 25px rgba(10, 191, 188, 0.4);
+}
+
+/* Bouton secondaire (contour) */
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--turquoise);
+  color: var(--turquoise);
+  display: inline-block;
+  padding: 0.75rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: var(--turquoise);
+  color: var(--blanc);
+}
+
+/* Tag / badge compétence */
+.tag {
+  display: inline-block;
+  background: var(--gradient-light);
+  color: var(--bleu);
+  border: 1px solid var(--turquoise);
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  background: var(--gradient);
+  color: var(--blanc);
+  border-color: transparent;
+}
+
+
+/* ============================================================
+   4. NAVIGATION
+   Pourquoi flexbox ici ? → Disposer logo + liens sur la même ligne,
+   avec espace automatique entre eux (space-between).
+   ============================================================ */
+.navbar {
+  position: fixed; /* reste en haut même en scrollant */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100; /* passe au-dessus de tout le contenu */
+  padding: 1rem 1.2rem;
+  background: rgba(250, 252, 253, 0.92);
+  backdrop-filter: blur(12px); /* effet verre dépoli */
+  border-bottom: 1px solid rgba(10, 191, 188, 0.15);
+  display: flex;
+  justify-content: space-between; /* logo à gauche, liens à droite */
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: var(--font-titre);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--bleu);
+  letter-spacing: 0.5px;
+}
+
+.nav-logo span {
+  color: var(--turquoise);
+}
+
+/* Les liens de navigation */
+.nav-links {
+  display: flex;
+  gap: 2rem; /* espace entre chaque lien */
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--gris);
+  font-size: 0.9rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Ligne qui apparaît sous le lien au survol */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--turquoise);
+  transition: width 0.3s ease; /* la ligne s'étend progressivement */
+}
+
+.nav-links a:hover {
+  color: var(--turquoise);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Lien actif (page actuelle) */
+.nav-links a.active {
+  color: var(--turquoise);
+  font-weight: 600;
+}
+
+/* Espace pour que le contenu ne se cache pas sous la navbar fixe */
+.page-content {
+  padding-top: 80px;
+}
+
+
+/* ============================================================
+   5. FOOTER
+   ============================================================ */
+footer {
+  background: var(--bleu);
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 2.5rem 1.2rem;
+  margin-top: 4rem;
+}
+
+footer .footer-logo {
+  font-family: var(--font-titre);
+  font-size: 1.8rem;
+  color: var(--blanc);
+  margin-bottom: 0.5rem;
+}
+
+footer .footer-logo span {
+  color: var(--turquoise);
+}
+
+footer p {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+footer .footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1rem 0;
+}
+
+footer .footer-links a {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.85rem;
+  transition: color 0.3s;
+}
+
+footer .footer-links a:hover {
+  color: var(--turquoise);
+}
+
+
+/* ============================================================
+   6A. PAGE D'ACCUEIL (index.html)
+   ============================================================ */
+
+/* Section héro — la grande bannière d'accueil */
+.hero {
+  min-height: 100vh; /* occupe tout l'écran */
+  display: flex;
+  align-items: center;
+  background: var(--gradient);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cercle décoratif en arrière-plan */
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+  top: -100px;
+  right: -100px;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 50%;
+  bottom: -50px;
+  left: -50px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: var(--blanc);
+  display: flex;
+  flex-direction: column;  /* mobile : colonne */
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  padding: 3rem 1.2rem;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid rgba(255,255,255,0.6);
+  box-shadow: 0 0 0 8px rgba(255,255,255,0.1);
+  object-fit: cover;
+  background: rgba(255,255,255,0.2); /* fond si pas de photo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  /* Animation d'entrée */
+  animation: fadeInDown 0.8s ease both;
+}
+
+.hero-text {
+  animation: fadeInUp 0.8s ease 0.2s both; /* délai de 0.2s */
+}
+
+.hero-greeting {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.hero-name {
+  font-family: var(--font-titre);
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+  font-weight: 300;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-white {
+  background: var(--blanc);
+  color: var(--bleu);
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.btn-white:hover {
+  background: var(--bleu);
+  color: var(--blanc);
+  transform: translateY(-3px);
+}
+
+.btn-ghost {
+  border: 2px solid rgba(255,255,255,0.6);
+  color: var(--blanc);
+  display: inline-block;
+  padding: 0.75rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* Section "Aperçu rapide" en bas de la hero */
+.quick-stats {
+  background: var(--blanc);
+  padding: 3rem 1.2rem;
+}
+
+.stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.stat-card {
+  background: var(--gradient-light);
+  border: 1px solid rgba(10, 191, 188, 0.2);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  text-align: center;
+  flex: 1;
+  min-width: 160px;
+  max-width: 220px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.stat-icon {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.stat-number {
+  font-family: var(--font-titre);
+  font-size: 2rem;
+  color: var(--bleu);
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--gris);
+}
+
+/* Section présentation sur index */
+.home-intro {
+  padding: var(--section-padding);
+  background: var(--gris-clair);
+}
+
+.home-intro-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.home-intro-text p {
+  color: var(--gris);
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+
+/* ============================================================
+   6B. PAGE À PROPOS (about.html)
+   ============================================================ */
+.about-section {
+  padding: var(--section-padding);
+}
+
+.about-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Timeline du parcours académique */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+/* Ligne verticale de la timeline */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--gradient);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+  animation: fadeInLeft 0.6s ease both;
+}
+
+/* Point sur la ligne */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1.7rem;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--turquoise);
+  border: 2px solid var(--blanc);
+  box-shadow: 0 0 0 3px var(--turquoise);
+}
+
+.timeline-date {
+  font-size: 0.8rem;
+  color: var(--turquoise);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-title {
+  font-family: var(--font-titre);
+  font-size: 1.2rem;
+  color: var(--bleu);
+  font-weight: 700;
+}
+
+.timeline-sub {
+  color: var(--gris);
+  font-size: 0.9rem;
+}
+
+/* Grille de compétences */
+.skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skill-item {
+  margin-bottom: 1.2rem;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.skill-name {
+  font-weight: 500;
+  color: var(--bleu);
+}
+
+.skill-percent {
+  color: var(--turquoise);
+  font-weight: 600;
+}
+
+/* Barre de progression */
+.skill-bar {
+  height: 8px;
+  background: var(--gris-clair);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  border-radius: 10px;
+  background: var(--gradient);
+  /* Animation : la barre se remplit progressivement */
+  animation: fillBar 1.5s ease both;
+  animation-delay: 0.3s;
+}
+
+/* Carte info personnelle */
+.info-card {
+  background: var(--gradient-light);
+  border: 1px solid rgba(10,191,188,0.2);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.info-card h3 {
+  font-family: var(--font-titre);
+  font-size: 1.5rem;
+  color: var(--bleu);
+  margin-bottom: 1.2rem;
+}
+
+.info-list li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(10,191,188,0.15);
+  color: var(--gris);
+  font-size: 0.95rem;
+}
+
+.info-list li:last-child {
+  border-bottom: none;
+}
+
+.info-list strong {
+  color: var(--bleu);
+  display: inline-block;
+  min-width: 120px;
+}
+
+
+/* ============================================================
+   6C. PAGE CONTACT (contact.html)
+   ============================================================ */
+.contact-section {
+  padding: var(--section-padding);
+}
+
+.contact-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.contact-info h3 {
+  font-family: var(--font-titre);
+  font-size: 1.5rem;
+  color: var(--bleu);
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  color: var(--gris);
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  background: var(--gradient-light);
+  border-radius: var(--radius);
+  transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateX(5px);
+}
+
+.contact-icon {
+  font-size: 1.3rem;
+  width: 40px;
+  text-align: center;
+}
+
+.contact-text small {
+  color: var(--gris);
+  font-size: 0.75rem;
+  display: block;
+}
+
+/* Formulaire de contact */
+.contact-form {
+  background: var(--blanc);
+  border: 1px solid rgba(10,191,188,0.2);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.contact-form h3 {
+  font-family: var(--font-titre);
+  font-size: 1.5rem;
+  color: var(--bleu);
+  margin-bottom: 1.5rem;
+}
+
+/* Groupe champ + label */
+.form-group {
+  margin-bottom: 1.3rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--bleu);
+  margin-bottom: 0.4rem;
+}
+
+/* Champs de saisie */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 2px solid var(--gris-clair);
+  border-radius: 8px;
+  font-family: var(--font-corps);
+  font-size: 0.95rem;
+  color: var(--noir);
+  background: var(--blanc);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effet au focus (quand on clique dans le champ) */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--turquoise);
+  box-shadow: 0 0 0 4px rgba(10,191,188,0.12);
+}
+
+.form-group textarea {
+  height: 140px;
+  resize: vertical; /* l'utilisateur peut agrandir verticalement */
+}
+
+/* Ligne de deux champs côte à côte */
+.form-row {
+  display: flex;
+  flex-direction: column; /* colonne sur mobile */
+  gap: 1rem;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+/* ============================================================
+   6D. PAGE GALERIE (gallery.html)
+   ============================================================ */
+.gallery-section {
+  padding: var(--section-padding);
+}
+
+/* Grille Flexbox pour la galerie */
+/* Pourquoi flexbox ici ? → disposer les cartes en lignes/colonnes
+   qui s'adaptent automatiquement à la taille de l'écran */
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;   /* les cartes passent à la ligne si nécessaire */
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* Carte projet */
+.project-card {
+  flex: 1;
+  min-width: 280px;
+  max-width: 340px;
+  background: var(--blanc);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(10,191,188,0.15);
+  box-shadow: var(--shadow);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-dark);
+}
+
+/* Miniature du projet */
+.project-thumb {
+  height: 200px;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Overlay au survol de la miniature */
+.project-thumb::after {
+  content: 'Voir le projet →';
+  position: absolute;
+  inset: 0; /* équivaut à top:0 right:0 bottom:0 left:0 */
+  background: rgba(10,191,188,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blanc);
+  font-size: 0.95rem;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-thumb::after {
+  opacity: 1;
+}
+
+.project-info {
+  padding: 1.5rem;
+}
+
+.project-info h3 {
+  font-family: var(--font-titre);
+  font-size: 1.2rem;
+  color: var(--bleu);
+  margin-bottom: 0.4rem;
+}
+
+.project-info p {
+  color: var(--gris);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.project-tag {
+  font-size: 0.75rem;
+  background: var(--gradient-light);
+  color: var(--turquoise-dark);
+  padding: 0.25rem 0.7rem;
+  border-radius: 50px;
+  border: 1px solid rgba(10,191,188,0.3);
+}
+
+
+/* ============================================================
+   7. ANIMATIONS CSS
+   Pourquoi @keyframes ? → Définir des animations réutilisables.
+   "animation: fadeInDown 0.8s ease" fait jouer l'animation.
+   ============================================================ */
+
+/* Apparition depuis le haut */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apparition depuis le bas */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apparition depuis la gauche */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Remplissage de la barre de compétence */
+@keyframes fillBar {
+  from { width: 0; }
+  /* "to" est défini inline avec style="width: X%" */
+}
+
+/* Pulsation douce pour l'avatar */
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 8px rgba(255,255,255,0.1); }
+  50%       { box-shadow: 0 0 0 16px rgba(255,255,255,0.05); }
+}
+
+.hero-photo {
+  animation: fadeInDown 0.8s ease both, pulse 3s ease infinite 1s;
+}
+
+
+/* ============================================================
+   8. RESPONSIVE DESIGN — MOBILE FIRST
+   
+   Principe Mobile First :
+   → On écrit D'ABORD les styles pour mobile (petit écran)
+   → Puis on utilise @media pour AJOUTER des styles quand
+     l'écran est plus grand (min-width).
+   
+   Points de rupture (breakpoints) :
+   - Tablette : 640px
+   - Desktop  : 1024px
+   ============================================================ */
+
+/* ---- TABLETTE (≥ 640px) ---- */
+@media (min-width: 640px) {
+  .hero-content {
+    flex-direction: row;     /* photo + texte côte à côte */
+    text-align: left;
+  }
+
+  .hero-text {
+    text-align: left;
+  }
+
+  .hero-subtitle {
+    margin: 0 0 1.5rem;
+  }
+
+  .hero-buttons {
+    justify-content: flex-start;
+  }
+
+  .hero-photo {
+    width: 200px;
+    height: 200px;
+    flex-shrink: 0;
+  }
+
+  .hero-name {
+    font-size: 3.8rem;
+  }
+
+  .about-grid,
+  .contact-grid {
+    flex-direction: row;    /* deux colonnes */
+    align-items: flex-start;
+  }
+
+  .about-grid > * {
+    flex: 1;
+  }
+
+  .contact-grid > * {
+    flex: 1;
+  }
+
+  .form-row {
+    flex-direction: row;    /* champs côte à côte sur tablette */
+  }
+
+  .home-intro-grid {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .home-intro-grid > * {
+    flex: 1;
+  }
+}
+
+/* ---- DESKTOP (≥ 1024px) ---- */
+@media (min-width: 1024px) {
+  .section-title {
+    font-size: 3rem;
+  }
+
+  .hero-name {
+    font-size: 4.5rem;
+  }
+
+  .hero-photo {
+    width: 240px;
+    height: 240px;
+  }
+
+  :root {
+    --section-padding: 6rem 1.2rem;
+  }
+
+  /* Menu hamburger caché sur desktop, liens visibles */
+  .nav-links {
+    display: flex !important;
+  }
+}
+
+/* ---- TRÈS PETITS ÉCRANS (< 360px) ---- */
+@media (max-width: 360px) {
+  .hero-name {
+    font-size: 2.4rem;
+  }
+
+  .btn, .btn-white, .btn-ghost {
+    padding: 0.7rem 1.4rem;
+    font-size: 0.85rem;
+  }
+}
