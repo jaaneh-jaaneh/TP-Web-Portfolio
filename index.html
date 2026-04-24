@@ -1,50 +1,28 @@
 <!DOCTYPE html>
-<!-- 
-  DOCTYPE html → dit au navigateur que c'est du HTML5 (version moderne)
-  Sans ça, le navigateur peut afficher la page en "mode quirks" (comportement imprévisible)
--->
 <html lang="fr">
-<!--
-  lang="fr" → important pour l'accessibilité et le SEO
-  Les lecteurs d'écran et moteurs de recherche savent que c'est en français
--->
-
 <head>
-  <!-- ============================================================
-    Le <head> contient des MÉTADONNÉES (infos sur la page,
-    invisibles pour l'utilisateur mais essentielles pour le navigateur)
-    ============================================================ -->
-
-  <!-- Encodage des caractères — obligatoire pour les accents (é, à, ç...) -->
   <meta charset="UTF-8">
-
-  <!-- Responsive : dit au navigateur mobile de ne PAS zoomer/dézoomer -->
-  <!-- width=device-width : largeur = largeur de l'écran du téléphone -->
-  <!-- initial-scale=1.0 : zoom initial = 100% -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Description qui apparaît dans Google (SEO) -->
-  <meta name="description" content="Portfolio de Khadi Sow, étudiante en L3 Informatique à l'UFR STA.">
-
-  <!-- Titre de l'onglet -->
-  <title>Khadidiatou Diane — Portfolio</title>
-
-  <!-- Lien vers la feuille de style CSS -->
-  <!-- href="../css/style.css" → remonte d'un dossier (..) puis va dans css/ -->
-  <!-- Mais index.html est à la racine, donc juste css/style.css -->
+  <meta name="description" content="Portfolio de Khadidiatou DIANE, étudiante en L3 Informatique à l'UFR STA.">
+  <title>Khadidiatou DIANE — Portfolio</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-  <!-- ============================================================
-    NAVIGATION — balise <nav> = élément sémantique pour la navigation
-    Sémantique : on utilise la BONNE balise HTML pour le bon contenu.
-    <nav> dit aux moteurs de recherche "c'est le menu de navigation"
-    ============================================================ -->
   <nav class="navbar">
     <!-- Logo / Nom du site -->
     <a href="index.html" class="nav-logo">Jaaneh<span>.</span></a>
+
+
+    <!-- Astuce CSS pur : checkbox invisible qui sert d'interrupteur -->
+  <input type="checkbox" id="menu-toggle" class="menu-toggle">
+  <label for="menu-toggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
 
     <!-- Liste des liens de navigation -->
     <ul class="nav-links">
@@ -79,7 +57,28 @@
             <a href="pages/about.html" class="btn-white">Découvrir mon parcours</a>
             <a href="pages/contact.html" class="btn-ghost">Me contacter</a>
           </div>
+
+          <div class="hero-social">
+            <a href="#" class="social-link" aria-label="WhatsApp">
+              <img src="https://cdn.simpleicons.org/whatsapp/ffffff" alt="WhatsApp" width="22">
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <img src="https://cdn.simpleicons.org/linkedin/ffffff" alt="LinkedIn" width="22">
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <img src="https://cdn.simpleicons.org/instagram/ffffff" alt="Instagram" width="22">
+            </a>
+            <a href="#" class="social-link" aria-label="Facebook">
+              <img src="https://cdn.simpleicons.org/facebook/ffffff" alt="Facebook" width="22">
+            </a>
+            <a href="#" class="social-link" aria-label="X (Twitter)">
+              <img src="https://cdn.simpleicons.org/x/ffffff" alt="X" width="22">
+            </a>
+          </div>
+
+
         </div>
+
 
       </div>
     </section>
@@ -187,6 +186,21 @@
   <!-- FOOTER — pied de page -->
   <footer>
     <div class="footer-logo">Jaaneh<span>.</span></div>
+    <div class="footer-social">
+      <a href="#" class="social-link-footer" aria-label="WhatsApp">
+        <img src="https://cdn.simpleicons.org/whatsapp/ffffff" alt="WhatsApp" width="20">
+      </a>
+      <a href="#" class="social-link-footer" aria-label="LinkedIn">
+        <img src="https://cdn.simpleicons.org/linkedin/ffffff" alt="LinkedIn" width="20">
+      </a>
+      <a href="#" class="social-link-footer" aria-label="Instagram">
+        <img src="https://cdn.simpleicons.org/instagram/ffffff" alt="Instagram" width="20">
+      </a>
+      <a href="#" class="social-link-footer" aria-label="Facebook">
+        <img src="https://cdn.simpleicons.org/facebook/ffffff" alt="Facebook" width="20">
+      </a>
+    </div>
+    
     <ul class="footer-links">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="pages/about.html">À propos</a></li>

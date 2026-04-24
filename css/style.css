@@ -1055,3 +1055,138 @@ footer .footer-links a:hover {
     font-size: 0.85rem;
   }
 }
+
+
+
+
+
+/* ============================================================
+   MENU HAMBURGER — CSS pur (sans JavaScript)
+   Principe : checkbox cachée + label = interrupteur visuel
+   Quand la checkbox est cochée (:checked), le menu s'affiche
+   ============================================================ */
+
+.menu-toggle {
+  display: none; /* cache la vraie checkbox */
+}
+
+.hamburger {
+  display: none; /* caché sur desktop */
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 101;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: var(--bleu);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Quand la checkbox est cochée → transforme les traits en X */
+.menu-toggle:checked + .hamburger span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.menu-toggle:checked + .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle:checked + .hamburger span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Quand checkbox cochée → affiche le menu */
+.menu-toggle:checked ~ .nav-links {
+  display: flex;
+}
+
+/* ============================================================
+   RÉSEAUX SOCIAUX
+   ============================================================ */
+.hero-social {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+.social-link {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background: rgba(255,255,255,0.3);
+  transform: translateY(-3px);
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.social-link-footer {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-link-footer:hover {
+  background: var(--turquoise);
+  transform: translateY(-3px);
+}
+
+/* ============================================================
+   RESPONSIVE NAVBAR — mobile
+   ============================================================ */
+@media (max-width: 639px) {
+  .hamburger {
+    display: flex; /* visible sur mobile */
+  }
+
+  .nav-links {
+    display: none; /* caché par défaut sur mobile */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--blanc);
+    flex-direction: column;
+    padding: 1rem 1.5rem 1.5rem;
+    gap: 1rem;
+    border-bottom: 2px solid rgba(10,191,188,0.2);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  }
+
+  .hero-social {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 640px) {
+  .hamburger {
+    display: none; /* caché sur tablette/desktop */
+  }
+  .nav-links {
+    display: flex !important;
+  }
+}
